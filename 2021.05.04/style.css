@@ -12,15 +12,27 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    cursor: pointer;
 }
 .lightbox {
-    background: red;
+    background: #fff;
     height: 90vh;
     width: 90vw;
     border-radius: 1rem;
     position: fixed;
     top: 5vh;
     left: 5vw;
+    display: none;
+    box-shadow: 0 0 5px 0 #0002, 0 0 15px 0 #0002;
+}
+.lightbox>.box {
+    width: auto;
+    height: calc(100% - 4rem);
+    margin: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
 }
 .lightbox>.cross {
     width: 2rem;
@@ -42,22 +54,34 @@
     top: -.75rem;
 }
 .arrow {
-    background: #000;
-    width: 1.5rem;
-    height: .5rem;
     position: absolute;
-    transform-origin: 1.5rem 0rem;
-    transform: rotate(45deg);
-    top: 50%;
+    top: calc(50% - 2.5rem);
+    font-size: 5rem;
+    line-height: 1;
+    cursor: pointer;
 }
-.arrow::before {
+.arrow.left {
+    transform: scale(-1,1);
+    left: 1rem;
+}
+.arrow.right {
+    right: 1rem;
+}
+
+body.light::before {
     content: "";
-    background: #000;
-    width: 1.5rem;
-    height: .5rem;
-    position: absolute;
+    /* width: 100vw;
+    height: 100vh; */
+    position: fixed;
     top: 0;
     left: 0;
-    transform-origin: 1.5rem .5rem;
-    transform: rotate(-90deg);
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,.8);
+}
+body.light {
+    overflow: hidden;
+}
+body.light .lightbox {
+    display: block;
 }
