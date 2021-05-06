@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <script src="data.js"></script>
+    <style>
+        body {
+            font: 2rem sans-serif;
+            width: 800px;
+            margin: 50px auto; /* auto ~ calc((100% - 800px) / 2)*/
+        }
+    </style>
+</head>
+<body>
+    <h1>Поиск разработчиков</h1>
+    <input type="search" placeholder="Поиск...">
+    <ul id="list"></ul>
+    <script>
+        const list = document.getElementById("list");
+        const search = document.querySelector("[type=\"search\"]");
+
+        const showList = (arr) => {
+            let items = arr.map(el => `<li>${el}</li>`);
+            console.log(items);
+        }
+        showList(students);
+    </script>
+</body>
+</html>
